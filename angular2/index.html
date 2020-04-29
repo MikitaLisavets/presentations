@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Angular2 Quickstart</title>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="shower/themes/ribbon/styles/screen-16x10.css">
+</head>
+<body class="shower list">
+	<header class="caption">
+		<h1>Angular2 Quickstart</h1>
+		<p>Mikita Lisavets</p>
+	</header>
+
+	<section class="slide" id="cover">
+		<style>
+			#cover:after {
+				visibility: hidden;
+			}
+			#cover h2 {
+				margin-top: 10px;
+				font-size: 100px;
+				text-shadow: 0 0 10px rgba(0, 0, 0, .75);
+				text-align: center;
+				color: #fff;
+			}
+		</style>
+		<h2>Angular 2: Quickstart</h2>
+		<img src="pictures/slide1.jpg" alt="" class="cover w h">
+	</section>
+
+	<section class="slide">
+		<h2>Intro</h2>
+		<p>
+			Angular 2 is a development platform for building mobile and desktop web applications
+		</p>
+	</section>
+
+	<section class="slide">
+		<h2 class="shout">0. make a project directory</h2>
+	</section>
+
+	<section class="slide">
+		<pre>
+			<code>my_awesome_project/</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2 class="shout">1. add dependencies</h2>
+	</section>
+
+	<section class="slide">
+		<p>
+			my_awesome_project/<br>
+			├ <mark>package.json</mark>
+		</p>
+	</section>
+
+	<section class="slide">
+		<h2 class="shout">
+			<a href="https://angular.io/docs/ts/latest/quickstart.html">
+				angular.io quickstart
+			</a>
+		</h2>
+	</section>
+
+	<section class="slide">
+		<h2>dependencies:</h2>
+		<ul>
+			<li>angular2</li>
+			<li class="next">systemjs</li>
+			<li class="next">es6-shim</li>
+			<li class="next">reflect-metadata</li>
+			<li class="next">rxjs</li>
+			<li class="next">zone.js</li>
+		</ul>
+	</section>
+
+	<section class="slide">
+		<h2>devDependencies:</h2>
+		<ul>
+			<li>concurrently</li>
+			<li>lite-server</li>
+			<li>typescript</li>
+		</ul>
+	</section>
+
+	<section class="slide">
+		<h2 class="shout">
+			2. npm install
+		</h2>
+	</section>
+
+	<section class="slide">
+		<h2 class="shout">
+			3. typescript configuration
+		</h2>
+	</section>
+
+	<section class="slide">
+		<p>
+			my_awesome_project/<br>
+			├ package.json <br>
+			├ <mark>tsconfig.json</mark>
+		</p>
+	</section>
+
+	<section class="slide">
+		<h2>compilerOptions:</h2>
+		<ul>
+			<li class="next">"target": "es5"</li>
+			<li class="next">"module": "system"</li>
+			<li class="next">"outDir": "./public"</li>
+			<li class="next">"noImplicitAny": false</li>
+		</ul>
+	</section>
+
+	<section class="slide">
+		<h2 class="shout">
+			4. add app
+		</h2>
+	</section>
+
+	<section class="slide">
+		<p>
+			my_awesome_project/<br>
+			├ package.json <br>
+			├ tsconfig.json <br>
+			├ <mark>app/</mark>
+		</p>
+	</section>
+	<section class="slide">
+		<p>
+			my_awesome_project/<br>
+			├ package.json <br>
+			├ tsconfig.json <br>
+			└ app/ <br>
+			&emsp;└ <mark>app.component.ts</mark>
+		</p>
+	</section>
+	<section class="slide">
+		<h2>app.component.ts</h2>
+		<pre>
+			<code class="next">import {Component} from 'angular2/core';</code>
+			<span class="next">
+				<code>@Component({</code>
+				<code>	selector: 'app-element',</code>
+				<code>	styles: ['h1 {color: red}']</code>
+				<code>	template: '&lt;h1&gt;{{title}}&lt;/h1&gt;'</code>
+				<code>})</code>
+			</span>
+			<span class="next">
+				<code>export class AppComponent {</code>
+				<code> title:String = 'My awesome title';</code>
+				<code>}</code>
+			</span>
+		</pre>
+	</section>
+	<section class="slide">
+		<p>
+			my_awesome_project/<br>
+			├ package.json <br>
+			├ tsconfig.json <br>
+			└ app/ <br>
+			&emsp;├ app.component.ts <br>
+			&emsp;└ <mark>boot.ts</mark>
+		</p>
+	</section>
+	<section class="slide">
+		<h2>boot.ts</h2>
+		<pre>
+			<code class="next">import {bootstrap} from 'angular2/platform/browser';</code>
+			<code class="next">import {AppComponent} from './app.component';</code>
+			<code class="next">bootstrap(AppComponent);</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2 class="shout">
+			5. creating index page
+		</h2>
+	</section>
+	<section class="slide">
+		<p>
+			my_awesome_project/<br>
+			├ <mark>index.html</mark> <br>
+			├ package.json <br>
+			├ tsconfig.json <br>
+			└ app/ <br>
+			&emsp;├ app.component.ts <br>
+			&emsp;└ boot.ts
+		</p>
+	</section>
+	<section class="slide">
+		<h2>scripts:</h2>
+		<ul>
+			<li class="next">
+				node_modules/angular2/bundles/<mark>angular2-polyfills.js</mark>
+			</li>
+			<li class="next">
+				node_modules/systemjs/dist/<mark>system.js</mark>
+			</li>
+			<li class="next">
+				node_modules/rxjs/bundles/<mark>Rx.js</mark>
+			</li>
+			<li class="next">
+				node_modules/angular2/bundles/<mark>angular2.js</mark>
+			</li>
+		</ul>
+	</section>
+	<section class="slide">
+		<pre>
+			<code>System.config({</code>
+			<code>	packages: {'public': {defaultExtension: 'js'}}</code>
+			<code>});</code>
+			</code>
+			<code class="next">System.import('public/boot');</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<p>
+			&lt;app-component&gt;Loading...&lt;/app-component&gt;
+		</p>
+	</section>
+
+	<section class="slide" id="last">
+	<style>
+		#last:after {
+			visibility: hidden;
+		}
+		#last h2 {
+			margin-top: 10px;
+			font-size: 100px;
+			text-shadow: 0 0 10px rgba(0, 0, 0, .75);
+			text-align: center;
+			color: #fff;
+			top: 20%;
+		}
+	</style>
+		<h2 class="shout">
+			it's all!
+		</h2>
+		<img src="pictures/last.gif" alt="" class="cover w h">
+	</section>
+
+	<section class="slide">
+		<img src="pictures/slide2.jpg" alt="" class="cover w h">
+	</section>
+
+	<div class="progress"></div>
+	<script src="shower/shower.min.js"></script>
+	<!-- Copyright © 2015 Yours Truly, Famous Inc. -->
+	<!-- Photos by John Carey, fiftyfootshadows.net -->
+</body>
+</html>
