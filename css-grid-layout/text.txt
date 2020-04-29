@@ -1,0 +1,206 @@
+CSS очень хорош, он позволяет решить одну и ту же задачу множеством способов, в зависимости от ситуации. Например чтобы вертикально отцентрировать элемент у нас есть 8 способов, Тоже самое касается и для расположения элементов на странице. Но помимо больших возможностей у css так же много и свох проблем. Я сейчас говорю о:
+- float элементов и все возможных clearfix хаков
+- абсолютное позиционирование и выскакивание из потока документа с возможностью наползания на другие элементы
+- inline blocks с проблемой пробельных символов
+
+Конечно у нас еще есть flexbox с большими возможностями и хорошей поддержкой. Единственное что flexbox подрузамевается как как своего рода линия направленные в определенном направлении, на которой располагаются элементы страницы. А вот то, про что я хочу вам рассказать, является принципиально новым в понятии расположения элементов.
+
+Итак, CSS grid layout.
+
+CSS grid layout это такой модуль css, определяющий двумерную сетку, оптимизированную для дизайна пользовательского интерфейса. В этой самой сетке элементы могут быть расположены в произвольных ячейках.
+
+Первая версия спецификации была описана еще 7 апреля 2011 года, а последняя на данный момент 17 сентября 2015 и находится в статусе Рабочего черновика. Принципиально ничего не менялось, лишь изменялись моменты в синтаксе свойств. Спецификация была впервые имплементирована в браузере IE10.
+
+Демо:
+
+<div class="container">
+  <div class="item_1">A</div>
+  <div class="item_2">B</div>
+</div>
+
+
+.container {
+  display: grid; // которое определяет наш блок как grid контейнер
+  --------------
+  // Далее мы делаем простую сетку 3x2
+  grid-template-columns: 100px 100px 100px;
+  grid-template-rows: auto auto;
+}
+
+Repeats
+grid-template-columns: repeat(4, 1fr);
+
+.item_1 {
+  grid-column-start: 1; // начальная граница сетки
+  grid-column-end: 2; // конечная граница сетки
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.item_2 {
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+<a class="jsbin-embed" href="http://jsbin.com/yudaza/3/embed?css,output">JS Bin on jsbin.com</a>
+
+
+есть более краткий синтаксис
+
+.item_1 {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+
+.item_2 {
+  grid-column: 2 / 4;
+  grid-row: 2 / 3;
+}
+
+но и это еще не все, можно объявить все четыре параметра в обном свойстве grid-area
+
+.item_1 {
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.item_2 {
+  grid-area: 2 / 2 / 3 / 4;
+}
+
+grid-row-start / grid-column-start / grid-row-end / grid-column-start
+
+http://gridbyexample.com/examples/
+
+
+The fr unit
+
+Grid layout приносит с собой новую единицу измерения: fraction или доля
+fraction число, представляющее собой долю свободного пространства в grid контейнере;
+Чем то напоминае поведения свойства flex-grow в flexbox;
+
+пример
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+<a class="jsbin-embed" href="http://jsbin.com/yudaza/2/embed?output"> on jsbin.com</a>
+
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 500px 1fr;
+}
+
+<a class="jsbin-embed" href="http://jsbin.com/yudaza/4/embed?output">JS Bin on jsbin.com</a>
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 500px 3fr;
+}
+
+<a class="jsbin-embed" href="http://jsbin.com/yudaza/5/embed?output">JS Bin on jsbin.com</a>
+
+
+страница с резиновой серединой
+
+grid-column-gap
+grid-row-gap
+
+// отступы между ячейками
+
+
+Named areas
+
+благодаря свойству grid-template-areas мы можем оперировать названиями нужных нам областей в сетке
+
+У дочерних элементов сетки присваивание идентификатора происходит с помощью свойства grid-area.
+
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: auto 100px auto;
+
+  grid-template-areas:
+    "header header"
+    "sidebar content"
+    "footer footer"
+}
+
+.header {
+  grid-area: header;
+  background: #f56;
+}
+.sidebar {
+  grid-area: sidebar;
+  background: #5f6;
+}
+.content {
+  grid-area: content;
+  background: #56f;
+}
+.footer {
+  grid-area: footer;
+  background: #6ff;
+}
+
+<a class="jsbin-embed" href="http://jsbin.com/yudaza/8/embed?output">JS Bin on jsbin.com</a>
+
+<div class="overlay"></div>
+.overlay {
+  z-index: 1;
+  background: #000;
+  grid-column: content-start / content-end;
+  grid-row: content-start / content-end;
+}
+
+<a class="jsbin-embed" href="http://jsbin.com/yudaza/7/embed?output">
+
+
+CSS Box Alignment Module
+
+Это еще один модуль css, отвечающий за выравнивание контенте внутри элемента
+В css grid layout это позиционирование происходит относительно ячеек сетки и с помощью свойств
+
+justify-self и align-self
+
+Каждый из них может принимать знания
+start
+center
+end
+strech
+
+
+<a class="jsbin-embed" href="http://jsbin.com/yudaza/12/embed?output">JS Bin on jsbin.com</a>
+
+
+Минусы
+
+1) html контент может может идти в абсолютно любом порядке, что может создать проблему доступности контента accesebility
+
+2) сложность понимания и написания
+
+3) поддержка
+
+canuise
+
+В заключении хочу сказать что css grid layout спецификация с хорошим отенциалом и ей пророчат светлое будущее уже в 2016 году
+
+Великая сила налагает великую ответственность
+Поэтому нужно понимать что ты делаешь, когда работаешь с такими возможностями css и не забывать что доступность контента
+
+Start using CSS Grid Layout by Rachel Andrew
+https://www.youtube.com/watch?v=Felq4z_rdPQ
+
+css-tricks
+https://css-tricks.com/snippets/css/complete-guide-grid/
+
+gridbyexample
+http://gridbyexample.com/examples/
+
+Specification
+https://www.w3.org/TR/css-grid-1/

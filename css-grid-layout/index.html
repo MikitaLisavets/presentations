@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>CSS grid layout</title>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="shower/themes/ribbon/styles/screen-16x10.css">
+</head>
+<body class="shower list">
+	<style>
+		iframe {
+			height: 350px !important;
+		}
+		.auto {
+			width: auto;
+			max-width: 100%;
+			max-height: 400px;
+		}
+		.center {
+			text-align: center;
+		}
+		.link {
+			font-size: 40px;
+		}
+	</style>
+	<header class="caption">
+		<h1>CSS Grid Layout</h1>
+		<p>Mikita Lisavets</p>
+	</header>
+	<section class="slide" id="cover">
+		<h2>CSS Grid Layout</h2>
+		<img src="pictures/cover.jpg" alt="" class="cover w">
+		<style>
+			#cover:after {
+				opacity: 0;
+			}
+			#cover h2 {
+				margin:150px 0 0;
+				color:#FFF;
+				text-align:center;
+				font-size:70px;
+				text-shadow: 0 0 10px rgba(0, 0, 0, .5);
+				}
+		</style>
+	</section>
+	<section class="slide">
+		<img src="pictures/css.png" alt="" />
+	</section>
+	<section class="slide">
+		<ul>
+			<li>table-cell</li>
+			<li>margin</li>
+			<li>line-height</li>
+			<li>absolute stretch</li>
+			<li>negative margin</li>
+			<li>transform</li>
+			<li>pseudo element</li>
+			<li>flexbox</li>
+		</ul>
+	</section>
+	<section class="slide">
+		<ul>
+			<li><mark>floats</mark> and clearfix hacks</li>
+			<li class="next"><mark>absolute position</mark> and document flow</li>
+			<li class="next"><mark>inline blocks</mark> and white space issues</li>
+			<li class="next">flexbox?</li>
+		</ul>
+	</section>
+	<section class="slide">
+		<h2>CSS Grid layout</h2>
+		<blockquote>
+			This CSS module defines a two-dimensional grid-based layout system, optimized for user interface design. In the grid layout model, the children of a grid container can be positioned into arbitrary slots in a flexible or fixed predefined layout grid.
+		</blockquote>
+	</section>
+	<section class="slide">
+		<h2>History</h2>
+		<ul>
+			<li class="next">7 April 2011</li>
+			<li class="next">17 September 2015</li>
+			<li class="next">IE 10</li>
+		</ul>
+	</section>
+	<section class="slide" id="demos">
+		<style>
+			#demos:after {
+				opacity: 0;
+			}
+			#demos {
+				text-align: center;
+			}
+			#demos h2 {
+				margin: 0;
+				font-size:70px;
+			}
+			#demos img {
+				margin: 30px 0 0;
+			}
+		</style>
+		<h2>Demos</h2>
+		<img src="pictures/dance.gif" alt="" />
+	</section>
+	<section class="slide">
+		<pre>
+			<code>&lt;div class="<mark>container</mark>"&gt;</code>
+			<code>	&lt;div class="<mark>item_1</mark>"&gt;A&lt;/div&gt;</code>
+			<code>	&lt;div class="<mark>item_2</mark>"&gt;B&lt;/div&gt;</code>
+			<code>&lt;/div&gt;</code>
+		</pre>
+	</section>
+	<section class="slide">
+		<pre>
+			<code>.container {</code>
+			<code>	display: <mark>grid</mark>;</code>
+			<code class="next">	grid-template-columns: 100px 100px 100px;</code>
+			<code class="next">	grid-template-rows: auto auto;</code>
+			<code>}</code>
+		</pre>
+	</section>
+	<section class="slide">
+		<pre>
+			<code>.container {</code>
+			<code>	display: grid;</code>
+			<code>	grid-template-columns: <mark>repeat(3, 100px)</mark></code>
+			<code>	grid-template-rows: <mark>repeat(2, auto)</mark>;</code>
+			<code>}</code>
+		</pre>
+	</section>
+	<section class="slide">
+		<img src="pictures/grid.jpg" alt="" class="cover" />
+	</section>
+	<section class="slide">
+		<pre>
+			<code>.item_1 {</code>
+			<code>	<mark>grid-column-start: 1</mark>; <mark class="comment">// start grid line </mark></code>
+			<code>	<mark>grid-column-end: 2</mark>; <mark class="comment">// end grid line </mark></code>
+			<code>	<mark>grid-row-start: 1</mark>;</code>
+			<code>	<mark>grid-row-end: 2</mark>;</code>
+			<code>}</code>
+		</pre>
+	</section>
+	<section class="slide">
+		<pre>
+			<code>.item_2 {</code>
+			<code>	grid-column-start: <mark>2</mark>;</code>
+			<code>	grid-column-end: <mark>4</mark>;</code>
+			<code>	grid-row-start: <mark>2</mark>;</code>
+			<code>	grid-row-end: <mark>3</mark>;</code>
+			<code>}</code>
+		</pre>
+	</section>
+	<section class="slide center">
+		<img src="pictures/img1.jpg" alt="" class="auto" />
+		<br>
+		<a href="http://jsbin.com/yudaza/3/embed?output" target="_blank">jsbin</a>
+	</section>
+	<section class="slide">
+		<pre>
+			<code>grid-column-start: 1;</code>
+			<code>grid-column-end: 2;</code>
+			<code>grid-row-start: 1;</code>
+			<code>grid-row-end: 2;</code>
+			<br>
+			<code>grid-column-start: 2;</code>
+			<code>grid-column-end: 4;</code>
+			<code>grid-row-start: 2;</code>
+			<code>grid-row-end: 3;</code>
+		</pre>
+	</section>
+	<section class="slide">
+		<pre>
+			<code><mark>grid-column: 1 / 2</mark>;</code>
+			<code><mark>grid-row: 1 / 2</mark>;</code>
+			<br>
+			<code><mark>grid-column: 2 / 4</mark>;</code>
+			<code><mark>grid-row: 2 / 3</mark>;</code>
+		</pre>
+	</section>
+	<section class="slide">
+		<pre>
+			<code><mark>grid-area: 1 / 1 / 2 / 2;</mark></code>
+			<br>
+			<code><mark>grid-area: 2 / 2 / 3 / 4;</mark></code>
+		</pre>
+	</section>
+	<section class="slide">
+		<pre>
+			<code>grid-area: <mark>1</mark> / 1 / 2 / 2;</code>
+			<br>
+			<code>grid-area: <mark>2</mark> / 2 / 3 / 4;</code>
+		</pre>
+
+		<p>
+			<mark>grid-row-start</mark> / grid-column-start / grid-row-end / grid-column-end
+		</p>
+	</section>
+	<section class="slide">
+		<pre>
+			<code>grid-area: 1 / <mark>1</mark> / 2 / 2;</code>
+			<br>
+			<code>grid-area: 2 / <mark>2</mark> / 3 / 4;</code>
+		</pre>
+
+		<p>
+			grid-row-start / <mark>grid-column-start</mark> / grid-row-end / grid-column-end
+		</p>
+	</section>
+	<section class="slide">
+		<pre>
+			<code>grid-area: 1 / 1 / <mark>2</mark> / 2;</code>
+			<br>
+			<code>grid-area: 2 / 2 / <mark>3</mark> / 4;</code>
+		</pre>
+
+		<p>
+			grid-row-start / grid-column-start / <mark>grid-row-end</mark> / grid-column-end
+		</p>
+	</section>
+	<section class="slide">
+		<pre>
+			<code>grid-area: 1 / 1 / 2 / <mark>2</mark>;</code>
+			<br>
+			<code>grid-area: 2 / 2 / 3 / <mark>4</mark>;</code>
+		</pre>
+
+		<p>
+			grid-row-start / grid-column-start / grid-row-end / <mark>grid-column-end</mark>
+		</p>
+	</section>
+
+	<section class="slide center">
+		<p>
+			<br>
+			<br>
+			<br>
+			<a class="link" href="http://gridbyexample.com/examples/">gridbyexample.com</a>
+		</p>
+	</section>
+
+	<section class="slide">
+		<h2 class="shout">The "fr" unit</h2>
+	</section>
+
+	<section class="slide">
+		<pre>
+			<code>.container {</code>
+			<code>	grid-template-columns: <mark>1fr</mark> <mark>1fr</mark> <mark>1fr</mark>;</code>
+			<code>}</code>
+		</pre>
+	</section>
+	<section class="slide center">
+		<img src="pictures/img2.jpg" alt="" class="auto" />
+		<br>
+		<a href="http://jsbin.com/yudaza/2/embed?output" target="_blank">jsbin</a>
+	</section>
+	<section class="slide">
+		<pre>
+			<code>.container {</code>
+			<code>	grid-template-columns: 1fr <mark>500px</mark> 1fr;</code>
+			<code>}</code>
+		</pre>
+	</section>
+	<section class="slide center">
+		<img src="pictures/img3.jpg" alt="" class="auto" />
+		<br>
+		<a href="http://jsbin.com/yudaza/4/embed?output" target="_blank">jsbin</a>
+	</section>
+	<section class="slide">
+		<pre>
+			<code>.container {</code>
+			<code>	grid-template-columns: 1fr 500px <mark>3fr</mark>;</code>
+			<code>}</code>
+		</pre>
+	</section>
+	<section class="slide center">
+		<img src="pictures/img4.jpg" alt="" class="auto" />
+		<br>
+		<a href="http://jsbin.com/yudaza/5/embed?output" target="_blank">jsbin</a>
+	</section>
+	<section class="slide">
+		<h2>Gaps</h2>
+		<ul>
+			<li><mark>grid-column-gap</mark></li>
+			<li><mark>grid-row-gap</mark></li>
+		</ul>
+	</section>
+	<section class="slide">
+		<h2 class="shout">Named areas</h2>
+	</section>
+	<section class="slide">
+		<h2>Named areas</h2>
+		<ul>
+			<li><mark>grid-template-areas</mark></li>
+			<li class="next"><mark>grid-area</mark></li>
+		</ul>
+	</section>
+	<section class="slide">
+		<pre>
+			<code>.container {</code>
+			<code>	display: grid;</code>
+			<code>	grid-template-columns: 1fr 3fr;</code>
+			<code>	grid-template-rows: auto 100px auto;</code>
+			<code>	<mark>grid-template-areas</mark>:</code>
+			<code>		"header header"</code>
+			<code>		"sidebar content"</code>
+			<code>		"footer footer"</code>
+			<code>}</code>
+		</pre>
+	</section>
+	<section class="slide">
+		<pre>
+			<code>.container {</code>
+			<code>	display: grid;</code>
+			<code>	grid-template-columns: 1fr 3fr;</code>
+			<code>	grid-template-rows: auto 100px auto;</code>
+			<code>	grid-template-areas:</code>
+			<code>		"<mark>header header</mark>"</code>
+			<code>		"sidebar content"</code>
+			<code>		"footer footer"</code>
+			<code>}</code>
+		</pre>
+	</section>
+	<section class="slide">
+		<pre>
+			<code>.header {</code>
+			<code>	<mark>grid-area: header</mark>;</code>
+			<code>}</code>
+		</pre>
+	</section>
+	<section class="slide">
+		<pre>
+			<code>.container {</code>
+			<code>	display: grid;</code>
+			<code>	grid-template-columns: 1fr 3fr;</code>
+			<code>	grid-template-rows: auto 100px auto;</code>
+			<code>	grid-template-areas:</code>
+			<code>		"header header"</code>
+			<code>		"<mark>sidebar</mark> content"</code>
+			<code>		"footer footer"</code>
+			<code>}</code>
+		</pre>
+	</section>
+	<section class="slide">
+		<pre>
+			<code>.sidebar {</code>
+			<code>	<mark>grid-area: sidebar</mark>;</code>
+			<code>}</code>
+		</pre>
+	</section>
+	<section class="slide">
+		<pre>
+			<code>.container {</code>
+			<code>	display: grid;</code>
+			<code>	grid-template-columns: 1fr 3fr;</code>
+			<code>	grid-template-rows: auto 100px auto;</code>
+			<code>	grid-template-areas:</code>
+			<code>		"header header"</code>
+			<code>		"sidebar <mark>content</mark>"</code>
+			<code>		"footer footer"</code>
+			<code>}</code>
+		</pre>
+	</section>
+	<section class="slide">
+		<pre>
+			<code>.content {</code>
+			<code>	<mark>grid-area: content</mark>;</code>
+			<code>}</code>
+		</pre>
+	</section>
+	<section class="slide">
+		<pre>
+			<code>.container {</code>
+			<code>	display: grid;</code>
+			<code>	grid-template-columns: 1fr 3fr;</code>
+			<code>	grid-template-rows: auto 100px auto;</code>
+			<code>	grid-template-areas:</code>
+			<code>		"header header"</code>
+			<code>		"sidebar content"</code>
+			<code>		"<mark>footer footer</mark>"</code>
+			<code>}</code>
+		</pre>
+	</section>
+	<section class="slide">
+		<pre>
+			<code>.footer {</code>
+			<code>	<mark>grid-area: footer</mark>;</code>
+			<code>}</code>
+		</pre>
+	</section>
+	<section class="slide center">
+		<img src="pictures/img5.jpg" alt="" class="auto" />
+		<br>
+		<a href="http://jsbin.com/yudaza/8/embed?output" target="_blank">jsbin</a>
+	</section>
+	<section class="slide">
+		<pre>
+			<code>&lt;div class="overlay"&gt;&lt;/div&gt;</code>
+			<br>
+			<code>.overlay {</code>
+			<code>	z-index: 1;</code>
+			<code>	background: #000;</code>
+			<code>	grid-column: content-start / content-end;</code>
+			<code>	grid-row: content-start / content-end;</code>
+			<code>}</code>
+		</pre>
+	</section>
+	<section class="slide center">
+		<img src="pictures/img6.jpg" alt="" class="auto" />
+		<br>
+		<a href="http://jsbin.com/yudaza/7/embed?output" target="_blank">jsbin</a>
+	</section>
+	<section class="slide">
+		<h2 class="shout">CSS Box Alignment Module</h2>
+	</section>
+	<section class="slide">
+		<h2>CSS Box Alignment Module</h2>
+		<ul>
+			<li><mark>justify-self</mark></li>
+			<li><mark>align-self</mark></li>
+		</ul>
+		<ul class="next">
+			<li><mark>start</mark></li>
+			<li><mark>center</mark></li>
+			<li><mark>end</mark></li>
+			<li><mark>stretch</mark></li>
+		</ul>
+	</section>
+	<section class="slide center">
+		<img src="pictures/img7.jpg" alt="" class="auto" />
+		<br>
+		<a href="http://jsbin.com/yudaza/12/embed?output" target="_blank">jsbin</a>
+	</section>
+	<section class="slide">
+		<h2>Cons:</h2>
+		<ul>
+			<li class="next">accessibility issues</li>
+			<li class="next">complexity</li>
+			<li class="next">browser support</li>
+		</ul>
+	</section>
+	<section class="slide">
+		<img src="pictures/caniuse.jpg" alt="" class="auto" />
+	</section>
+
+	<section class="slide" id="end">
+		<style>
+			#end:after {
+				opacity: 0;
+			}
+			#end h2 {
+				color: #fff;
+				font-size: 50px;
+				margin-top: 160px;
+				text-shadow: 0 0 20px rgba(0, 0, 0, .5);
+			}
+		</style>
+		<img src="pictures/end.jpg" alt="" class="cover w h" />
+		<h2>With Great Power Comes Great Responsibility</h2>
+	</section>
+	<section class="slide">
+		<ul>
+			<li><a href="https://www.youtube.com/watch?v=Felq4z_rdPQ" target="_blank">Start using CSS Grid Layout by Rachel Andrew</a></li>
+			<li><a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank">Complete guide css grid</a></li>
+			<li><a href="http://gridbyexample.com/examples/" target="_blank">Gridbyexample.com</a></li>
+			<li><a href="https://www.w3.org/TR/css-grid-1/" target="_blank">Specification</a></li>
+		</ul>
+	</section>
+	<section class="slide">
+		<h2 class="shout">thanks</h2>
+	</section>
+
+	<div class="progress"></div>
+	<script src="shower/shower.min.js"></script>
+	<!-- Copyright © 2015 Yours Truly, Famous Inc. -->
+	<!-- Photos by John Carey, fiftyfootshadows.net -->
+</body>
+</html>
