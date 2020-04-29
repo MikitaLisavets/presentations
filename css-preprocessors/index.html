@@ -1,0 +1,250 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <title>CSS Preprocessors</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=792, user-scalable=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <link rel="stylesheet" href="shower/themes/ribbon/styles/screen-16x10.css">
+  <style>
+    .slide-cover:after {
+      visibility: hidden;
+    }
+    .slide-cover h3 {
+      color: #FFF;
+      text-shadow: 0 0 5px rgba(0, 0, 0, .7);
+    }
+  </style>
+</head>
+<body class="shower list">
+  <header class="caption">
+    <h1>CSS Preprocessors</h1>
+    <p>Mikita Lisavets</p>
+  </header>
+
+  <section class="slide slide-cover"><div>
+    <h3 class="shout">CSS Preprocessors</h3>
+    <img src="pictures/gears.jpg" class="cover w h">
+  </div></section>
+
+  <section class="slide">
+    <h2>About</h2>
+    <blockquote cite="https://developer.mozilla.org/en-US/docs/Glossary/CSS_preprocessor">
+      A CSS preprocessor is a program that lets you generate CSS from the preprocessor's own unique syntax.
+    </blockquote>
+  </section>
+
+  <section class="slide"><div>
+    <h2>Basics</h2>
+    <ul>
+      <li class="next">Html</li>
+      <li class="next">CSS</li>
+      <li class="next">JavaScript</li>
+    </ul>
+  </div></section>
+
+  <section class="slide"><div>
+    <h2>Basics</h2>
+    <ul>
+      <li class="note">Html</li>
+      <li><mark>CSS</mark></li>
+      <li class="note">JavaScript</li>
+    </ul>
+  </div></section>
+
+  <section class="slide shout"><div>
+    <h2>CSS</h2>
+  </div></section>
+
+  <section class="slide slide-cover"><div>
+    <img src="pictures/oldschool.jpg" class="cover h" alt="">
+  </div></section>
+
+  <section class="slide"><div>
+    <h2>CSS Preprocessors</h2>
+    <ul>
+      <li class="next">Pre-processors</li>
+      <li class="next">Post-processors</li>
+    </ul>
+  </div></section>
+
+  <section class="slide slide-cover"><div>
+    <img src="pictures/vs.jpg" class="cover w h" alt="">
+  </div></section>
+
+  <section class="slide"><div>
+    <h2>CSS Preprocessors</h2>
+    <ol>
+      <li class="next">Less</li>
+      <li class="next">Sass / SCSS</li>
+      <li class="next">Stylus</li>
+    </ol>
+  </div></section>
+
+  <section class="slide"><div>
+    <h2 class="shout">Variables</h2>
+  </div></section>
+
+  <section class="slide"><div>
+    <pre>
+      <code>.link {</code>
+      <code>  text-decoration: underline;</code>
+      <code>  color: #bada55;</code>
+      <code>}</code>
+
+      <code>.menu {</code>
+      <code>  color: #bada55;</code>
+      <code>}</code>
+    </pre>
+  </div></section>
+
+  <section class="slide"><div>
+    <pre>
+      <code>.link {</code>
+      <code>  text-decoration: underline;</code>
+      <code>  color: <mark>#bada55</mark>;</code>
+      <code>}</code>
+
+      <code>.menu {</code>
+      <code>  color: <mark>#bada55</mark>;</code>
+      <code>}</code>
+    </pre>
+  </div></section>
+
+  <section class="slide"><div>
+    <pre>
+      <code><mark>@color: #bada55</mark></code>
+    </pre>
+
+    <pre>
+      <code>.link {</code>
+      <code>  text-decoration: underline;</code>
+      <code>  color: <mark>@color</mark>;</code>
+      <code>}</code>
+
+      <code>.menu {</code>
+      <code>  color: <mark>@color</mark>;</code>
+      <code>}</code>
+    </pre>
+  </div></section>
+
+  <section class="slide"><div>
+    <h2 class="shout">Mixins</h2>
+  </div></section>
+
+  <section class="slide"><div>
+    <pre>
+      <code>@color: #bada55</code>
+    </pre>
+
+    <pre>
+      <code>.link {</code>
+      <code>  text-decoration: underline;</code>
+      <code>  color: @color;</code>
+      <code>}</code>
+
+      <code>.menu {</code>
+      <code>  color: @color;</code>
+      <code>}</code>
+    </pre>
+  </div></section>
+
+  <section class="slide"><div>
+    <pre>
+      <code>@color: #bada55</code>
+      <code><mark>.color-mix {</mark></code>
+      <code><mark>  color: @color;</mark></code>
+      <code><mark>}</mark></code>
+    </pre>
+  </div></section>
+
+  <section class="slide"><div>
+
+    <pre>
+      <code>.link {</code>
+      <code>  <mark>.color-mix()</mark>;</code>
+      <code>  text-decoration: underline;</code>
+      <code>}</code>
+
+      <code>.menu {</code>
+      <code>  <mark>.color-mix()</mark>;</code>
+      <code>}</code>
+    </pre>
+  </div></section>
+
+  <section class="slide slide-cover"><div>
+    <img src="pictures/brain.jpg" class="cover h" alt="">
+  </div></section>
+
+  <section class="slide"><div>
+    <h2 class="shout">Nesting</h2>
+  </div></section>
+
+  <section class="slide"><div>
+    <pre>
+      <code>.menu { ... }</code>
+      <code>.menu li { ... }</code>
+      <code>.menu li a { ... }</code>
+      <code>.menu li a span { ... }</code>
+      <code>.menu li a span ... { ... }</code>
+    </pre>
+  </div></section>
+
+  <section class="slide slide-cover"><div>
+    <img src="pictures/fear.png" alt="">
+  </div></section>
+
+  <section class="slide"><div>
+    <pre>
+      <code>.menu {</code>
+      <code>  li {</code>
+      <code>    a {</code>
+      <code>      span {</code>
+      <code>        ...</code>
+      <code>      }</code>
+      <code>    }</code>
+      <code>  }</code>
+      <code>}</code>
+    </pre>
+  </div></section>
+
+  <section class="slide"><div>
+    <h2>Parent reference</h2>
+    <pre>
+      <code>.menu { ... }</code>
+      <code>.menu_item { ... }</code>
+    </pre>
+    <pre>
+      <code>.menu {</code>
+      <code>  ... </code>
+      <code>  &_item { ... }</code>
+      <code>}</code>
+    </pre>
+  </div></section>
+
+  <section class="slide"><div>
+    <img src="pictures/smile.jpg" alt="">
+  </div></section>
+
+  <section class="slide"><div>
+    <h2>More?</h2>
+    <ul>
+      <li class="next">Imports</li>
+      <li class="next">Mixins with params</li>
+      <li class="next">Functions</li>
+      <li class="next">Loops</li>
+      <li class="next">...</li>
+    </ul>
+  </div></section>
+
+    <section class="slide slide-cover"><div>
+    <h2>Questions?</h2>
+    <img src="pictures/cool.jpg" class="cover" alt="">
+  </div></section>
+
+  <div class="progress"><div></div></div>
+  <script src="shower/shower.min.js"></script>
+  <!-- Copyright © 2014 Yours Truly, Famous Inc. -->
+  <!-- Photos by John Carey, fiftyfootshadows.net -->
+</body>
+</html>
