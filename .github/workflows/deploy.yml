@@ -13,4 +13,4 @@ jobs:
       env:
         EMAIL: ${{ secrets.EMAIL }}
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
-        BUILD_DIR: /
+        BUILD_DIR: ./
